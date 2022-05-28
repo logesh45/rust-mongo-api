@@ -1,5 +1,5 @@
-use std::env;
 extern crate dotenv;
+use std::env;
 use dotenv::dotenv;
 use mongodb::{
     bson::{

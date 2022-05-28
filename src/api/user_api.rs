@@ -3,10 +3,10 @@ use crate::{
     repository::mongodb_repo::MongoRepo,
 };
 
-use actix_web::{
-    post,get,
-    web::{Data, Json, Path},
-    HttpResponse,
+use actix_web::{post, get,
+                web::{Data, Json, Path, scope},
+                HttpResponse,
+                Scope
 };
 
 #[post("/user")]
@@ -35,4 +35,10 @@ pub async fn get_user(db: Data<MongoRepo>, path: Path<String>) -> HttpResponse {
         Ok(user) => HttpResponse::Ok().json(user),
         Err(err) => HttpResponse::InternalServerError().body(err.to_string()),
     }
+}
+
+pub fn user_routes() -> Scope {
+    scope("/v1")
+    .service(create_user)
+    .service(get_user)
 }
