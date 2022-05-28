@@ -1,5 +1,11 @@
 /target
 
+#Environment
+.env
+
 #IntelliJ
 .idea
+
+#logs
+logs
 
