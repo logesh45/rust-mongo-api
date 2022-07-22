@@ -11,6 +11,11 @@ serde = "1.0.137"
 dotenv = "0.15.0"
 log = "0.4"
 simplelog = "^0.12.0"
+actix-web-validator = "4.0.0"
+
+[dependencies.validator]
+version = "0.15" 
+features = ["derive"] 
 
 [dependencies.mongodb]
 version = "2.2.1"
